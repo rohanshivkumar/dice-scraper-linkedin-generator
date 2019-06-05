@@ -6,7 +6,7 @@ Requires python 3.6 to be installed on system with PATH variable set.
 INSTALLATION
 1. Clone or Download the repository to a folder.
 
-2. In command prompt, navigate to the folder and run the following command: pip install -r requires.txt
+2. In command prompt, navigate to the folder and run the following command: 'pip install -r requires.txt'
 
 3. (FOR GOOGLE CHROME AS BROWSER) Head to http://chromedriver.chromium.org/downloads and download the webdriver corresponding to your chrome version and add this file's location to your system environment variable (PATH).
 
