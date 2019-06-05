@@ -137,8 +137,6 @@ def action(p,lbl,keyword,place):
         lbl.config(state = Tk.NORMAL,text = "Please enter both fields      ",fg = "red")
         lbl.update()
         
-    
-
 if __name__ == "__main__":
     master = Tk.Tk()
     master.title("Retrieve LinkedIn from Dice")
