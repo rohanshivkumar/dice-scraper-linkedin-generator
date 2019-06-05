@@ -88,13 +88,13 @@ def parse(keyword, place):
                     continue
                 search_term = company_name + " " + job_name + \
                     ' \"manager\" OR \"director\" linkedIn'
-                #linkedinurl = google_search(search_term, my_api_key, my_cse_id, num=10,siteSearch = "linkedin.com")
+                linkedinurl = google_search(search_term, my_api_key, my_cse_id, num=10,siteSearch = "linkedin.com")
                 jobs = {
                     "Name": job_name,
                     "Company": company_name,
                     "Location": job_location,
                     "Url": job_url,
-                    #"LinkedIn": linkedinurl
+                    "LinkedIn": linkedinurl
                 }
                 job_listings.append(job_key)
                 page_listings.append(jobs)
@@ -112,6 +112,50 @@ def parse(keyword, place):
         print(traceback.print_exc())
         browser.quit()
         return False
-
-
-parse("tech support","santa clara,ca")
+   
+def action(p,lbl,keyword,place):
+    if(keyword.strip() and place.strip()):
+        if(all(x.isalpha() or x.isspace() for x in keyword) and all(x.isalpha() or x.isspace() for x in place)):          
+            lbl.config(state = Tk.NORMAL,text = "Fetching Job Details          ",fg = "black")
+            lbl.update()
+            p.config(text="Please Wait",state = Tk.DISABLED)
+            p.update()
+            try:
+                scraped_data = parse(keyword,place)
+                if(type(scraped_data) == bool):
+                    print("Error occured")
+                else:
+                    print("Wrote data to output file \'%s-%s-dice-job-results.csv\'"%(keyword, place))
+            except Exception:   
+                print(Exception)            
+            lbl.config(state = Tk.NORMAL,text="                                                 ")
+            lbl.update()
+            p.config(text="Find Jobs",state = Tk.NORMAL)
+            p.update()
+        else:                                 
+            lbl.config(state = Tk.NORMAL,text = "Please make sure entries\n contain only alphabets",fg = "red")
+            lbl.update()
+    else:                                 
+        lbl.config(state = Tk.NORMAL,text = "Please enter both fields      ",fg = "red")
+        lbl.update()
+        
+if __name__ == "__main__":
+    master = Tk.Tk()
+    master.title("Retrieve LinkedIn from Dice")
+    master.geometry("300x170")
+    master.resizable(False,False)
+    Tk.Label(master, text="Job Name:",anchor=Tk.W,font ="Times").grid(row=0,sticky=Tk.W,padx = 3)
+    Tk.Label(master, text="Location:",anchor=Tk.W,font ="Times").grid(row=1,sticky=Tk.W,padx = 3)
+    e1 = Tk.Entry(master)
+    e2 = Tk.Entry(master)
+    e1.grid(row=0, column=1,sticky= Tk.W)
+    e2.grid(row=1, column=1,sticky= Tk.W)
+    x1 = Tk.Button(master, text='Quit',font ="Times",command=master.quit)
+    x2 = Tk.Button(master, text='Find Jobs',font ="Times")
+    x1.grid(row=5, column=1, sticky=Tk.W, pady=20)
+    x2.grid(row=4, column=1, sticky=Tk.W, pady=1)
+    lbl = Tk.Label(master, text="                  ",state = Tk.NORMAL,anchor = Tk.W)
+    lbl.grid(row = 3,column = 1)
+    x2.config(command = lambda:action(x2,lbl,e1.get(),e2.get()))
+    master.mainloop()
+    browser.quit()
