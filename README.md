@@ -8,9 +8,9 @@ INSTALLATION
 
 2. In command prompt, navigate to the folder and run the following command: pip install -r requires.txt
 
-3a. (FOR GOOGLE CHROME AS BROWSER) Head to http://chromedriver.chromium.org/downloads and download the webdriver corresponding to your chrome version and add this file's location to your system environment variable (PATH).
+ 3a. (FOR GOOGLE CHROME AS BROWSER) Head to http://chromedriver.chromium.org/downloads and download the webdriver corresponding to your chrome version and add this file's location to your system environment variable (PATH).
 
-3b. (FOR SAFARI AS BROWSER) 
+ 3b. (FOR SAFARI AS BROWSER) 
 High Sierra and later:
 Run `safaridriver --enable` once. (If you’re upgrading from a previous macOS release, you may need to use sudo.)
 
