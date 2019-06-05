@@ -12,7 +12,8 @@ INSTALLATION
 
 4. (FOR SAFARI AS BROWSER) High Sierra and later:
 * Run `safaridriver --enable` once. (If you’re upgrading from a previous macOS release, you may need to use sudo.)
-Sierra and earlier:
+
+  Sierra and earlier:
 *If you haven’t already done so, make the Develop menu available. Choose Safari > Preferences, and on the Advanced tab, select “Show Develop menu in menu bar.” For details, see https://support.apple.com/guide/safari/welcome.
 
 *Choose Develop > Allow Remote Automation.
