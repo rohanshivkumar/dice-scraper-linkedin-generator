@@ -1,4 +1,4 @@
-Searches for jobs in certain locations from Dice, finds LinkedIn of potential connections related to the job searched for. Writes to .csv file in the directory of download in the format jobname-location-results.csv(Example: tech support-san jose-job-results.csv)
+Searches for jobs in certain locations from Dice, finds LinkedIn of potential connections related to the job searched for. Writes to .csv file in the directory of download in the format jobname-location-results.csv(Example: tech support-san jose-dice-job-results.csv)
 
 Uses selenium for automated browsing to scrape data.
 Requires python 3.6 to be installed on system with PATH variable set. 
